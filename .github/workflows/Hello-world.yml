@@ -5,9 +5,9 @@ on:
     branches: [ "main", "master" ]
 
 permissions:
-  contents: read    
-  pages: write       
-  id-token: write    
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -16,13 +16,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload Artifact
+      - name: Deploy to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './' 
+          path: './'
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy Pages Actual
         uses: actions/deploy-pages@v4
