@@ -1,23 +1,28 @@
-name: Deploy Web by Poomrapee-020 
+name: Poomrapee 020 - CI/CD Workflow
 
 on:
   push:
     branches: [ "main", "master" ]
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: read    
+  pages: write       
+  id-token: write    
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code by Poomrapee-020 
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Deploy to GitHub Pages
-        uses: actions/gh-pages@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          path: './' 
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
