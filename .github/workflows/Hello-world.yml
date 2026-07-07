@@ -1,8 +1,8 @@
-name: Deploy Static Web to GitHub Pages
+name: Deploy Web by Poomrapee-020 
 
 on:
   push:
-    branches: [ "main", "master" ] # รันเมื่อมีการส่งโค้ดเข้ากิ่ง main หรือ master
+    branches: [ "main", "master" ]
 
 permissions:
   contents: write
@@ -13,12 +13,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/poomrapee-020@v4
+      - name: Checkout Code by Poomrapee-020 
+        uses: actions/checkout@v4
 
-      # สเต็ปสั่ง Deploy หน้าเว็บด้วย Action สำเร็จรูป
       - name: Deploy to GitHub Pages
-        uses: actions/gh-pages@v4
+        uses: actions/gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./ # สั่งให้ Deploy ไฟล์จากโฟลเดอร์หลัก (ที่มี index.html)
+          publish_dir: ./
