@@ -1,13 +1,24 @@
-name: 'my first workflow'
+name: Deploy Static Web to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main", "master" ] # รันเมื่อมีการส่งโค้ดเข้ากิ่ง main หรือ master
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Say Hello
-        run: echo 'Hello Github action'
+      - name: Checkout Code
+        uses: actions/poomrapee-020@v4
+
+      # สเต็ปสั่ง Deploy หน้าเว็บด้วย Action สำเร็จรูป
+      - name: Deploy to GitHub Pages
+        uses: actions/gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./ # สั่งให้ Deploy ไฟล์จากโฟลเดอร์หลัก (ที่มี index.html)

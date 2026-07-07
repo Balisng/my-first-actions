@@ -1,0 +1,117 @@
+/* ล้างค่าเริ่มต้น และตั้งค่าฟอนต์ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Anuphan', sans-serif;
+}
+
+/* พื้นหลังแบบไล่เฉดสีนุ่มๆ (Gradient) */
+body {
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* กล่องข้อความหลัก */
+.container {
+    background-color: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ส่วนของช่องกรอกข้อมูล */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#todo-input:focus {
+    border-color: #8ec5fc;
+    box-shadow: 0 0 8px rgba(142, 197, 252, 0.5);
+}
+
+#add-btn {
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+#add-btn:hover {
+    background-color: #5b4cc4;
+}
+
+/* ส่วนของรายการ To-Do */
+#todo-list {
+    list-style: none;
+}
+
+#todo-list li {
+    background-color: #f8f9fa;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+    border-left: 4px solid #6c5ce7;
+}
+
+/* ปรับแต่งปุ่มลบถังขยะ */
+.delete-btn {
+    background-color: #ff7675;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #e84393;
+}
+
+/* Animation เวลาเพิ่มรายการใหม่ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
